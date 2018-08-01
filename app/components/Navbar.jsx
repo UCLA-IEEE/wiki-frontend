@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import { PageWrapper } from './Wrappers'
 
@@ -23,6 +24,7 @@ const MobileLogo = styled.img`
   width: 40px;
   position: absolute;
   left: 10px;
+  display: none;
 
   @media (max-width: 750px) {
     display: block;
@@ -68,8 +70,12 @@ class Navbar extends Component {
     return (
       <NavbarContainer>
         <PageWrapper>
-          <Logo src={require('/public/logo.png')} />
-          <MobileLogo src={require('/public/IEEE_white_flag.png')} />
+          <Link to="/">
+            <Logo src={require('/public/logo.png')} />
+          </Link>
+          <Link to="/">
+            <MobileLogo src={require('/public/IEEE_white_flag.png')} />
+          </Link>
           <form onSubmit={this.handleQuerySubmit}>
             <SearchInput onChange={this.handleQueryChange} type="text" placeholder="Search.." />
           </form>
