@@ -3,10 +3,9 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
 import { Title } from '../components/Typography'
 import Loading from '../components/Loading'
-import { PageWrapper, LightGreyBackground } from '../components/Wrappers'
+import { PageWrapper } from '../components/Wrappers'
 
 // TODO: Remove this once you have an actual API call
 import results from '../data/search-results'

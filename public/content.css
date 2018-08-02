@@ -18,11 +18,14 @@ blockquote {
   background-color: rgba(0, 98, 155, 0.1);
 }
 
-.hljs {
+pre {
   padding: 15px 10px;
   margin: 15px 30px;
   border-left: solid #00629b 8px;
   border-radius: 2px;
+
+  background-color: #282c34;
+  color: #abb2bf;
 
   font-family: 'Menlo', 'Source Code Pro', monospace;
 }

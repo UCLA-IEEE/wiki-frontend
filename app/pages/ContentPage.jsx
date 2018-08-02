@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import hljs from 'highlightjs'
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -27,6 +28,13 @@ class ContentPage extends Component {
 
   componentWillMount() {
     console.log('making request for page content ...')
+  }
+
+  componentDidMount() {
+    // Apply highlight.js for dynamically added code segments
+    for (let e of document.getElementsByTagName('pre')) {
+      e.innerHTML = hljs.highlightAuto(e.innerText).value
+    }
   }
 
   render() {

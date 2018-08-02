@@ -92,7 +92,7 @@ class Navbar extends Component {
           </form>
 
           <NavbarText>
-            <WhiteLink to="/login">Login</WhiteLink> | <WhiteLink to="registration">Sign Up</WhiteLink>
+            <WhiteLink to="/login">Login</WhiteLink> | <WhiteLink to="/registration">Sign Up</WhiteLink>
           </NavbarText>
         </PageWrapper>
       </NavbarContainer>
