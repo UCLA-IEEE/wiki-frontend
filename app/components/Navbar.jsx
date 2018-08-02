@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+import { WhiteLink } from './Typography'
 import { PageWrapper } from './Wrappers'
 
 const NavbarContainer = styled.div`
@@ -43,6 +44,15 @@ const SearchInput = styled.input`
   letter-spacing: 1px;
 `
 
+const NavbarText = styled.p`
+  font-size: 15px;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  margin: 7px;
+  color: white;
+`
+
 class Navbar extends Component {
   constructor(props) {
     super(props)
@@ -76,9 +86,14 @@ class Navbar extends Component {
           <Link to="/">
             <MobileLogo src={require('/public/IEEE_white_flag.png')} />
           </Link>
+
           <form onSubmit={this.handleQuerySubmit}>
             <SearchInput onChange={this.handleQueryChange} type="text" placeholder="Search.." />
           </form>
+
+          <NavbarText>
+            <WhiteLink to="/login">Login</WhiteLink> | <WhiteLink to="registration">Sign Up</WhiteLink>
+          </NavbarText>
         </PageWrapper>
       </NavbarContainer>
     )

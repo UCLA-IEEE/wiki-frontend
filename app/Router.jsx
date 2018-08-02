@@ -2,8 +2,9 @@ import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { Switch, Route } from 'react-router'
 import ContentPage from './pages/ContentPage'
-import SearchPage from './pages/SearchPage'
 import ErrorPage from './pages/ErrorPage'
+import RegistrationPage from './pages/RegistrationPage'
+import SearchPage from './pages/SearchPage'
 
 class Router extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class Router extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={ContentPage} />
+          <Route exact path="/registration" component={RegistrationPage} />
           <Route path="/page/:slug" component={ContentPage} />
           <Route path="/search/:query" component={SearchPage} />
           <Route path="" component={ErrorPage} />

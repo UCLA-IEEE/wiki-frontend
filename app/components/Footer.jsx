@@ -22,7 +22,7 @@ const FooterText = styled.p`
 
 const SocialContainer = styled.div`
   float: right;
-  margin-top: -6px;
+  margin-top: -4px;
   color: white;
 
   a {

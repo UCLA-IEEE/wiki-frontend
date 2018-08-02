@@ -3,18 +3,11 @@ import styled from 'styled-components'
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { PageWrapper, LightGreyBackground, CardContentWrapper } from '../components/Wrappers'
+import { PageWrapper, LightGreyBackground, CardContentWrapper, Card } from '../components/Wrappers'
 import { Title } from '../components/Typography'
 import { CommentSection } from '../components/Comment'
 
 import page from '../data/page'
-
-const Card = styled.div`
-  margin: 20px 0;
-  padding: 15px 10px;
-  background-color: white;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 25%);
-`
 
 const Tag = styled.span`
   display: inline-block;
