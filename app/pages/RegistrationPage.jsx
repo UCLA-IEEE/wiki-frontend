@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { PageWrapper, LightGreyBackground, Card } from '../components/Wrappers'
 import { Title } from '../components/Typography'
@@ -56,8 +55,6 @@ class RegistrationPage extends Component {
   render() {
     return (
       <FullScreen>
-        <Navbar {...this.props} />
-
         <FullScreenWrapper mobileWrap>
           <Card style={{ textAlign: 'center' }}>
             <RTitle>Wiki Registration</RTitle>

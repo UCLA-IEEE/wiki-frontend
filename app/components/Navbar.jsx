@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 import { WhiteLink } from './Typography'
 import { PageWrapper } from './Wrappers'
@@ -100,4 +100,4 @@ class Navbar extends Component {
   }
 }
 
-module.exports = Navbar
+module.exports = withRouter(Navbar)

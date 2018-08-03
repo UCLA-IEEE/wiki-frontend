@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import hljs from 'highlightjs'
 
-import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { PageWrapper, LightGreyBackground, CardContentWrapper, Card } from '../components/Wrappers'
 import { Title } from '../components/Typography'
@@ -40,8 +39,6 @@ class ContentPage extends Component {
   render() {
     return (
       <LightGreyBackground>
-        <Navbar {...this.props} />
-
         <PageWrapper mobileWrap>
           <Card>
             <CardContentWrapper>

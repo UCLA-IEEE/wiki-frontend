@@ -57,25 +57,21 @@ class SearchPage extends Component {
 
   render() {
     return (
-      <div>
-        <Navbar {...this.props} />
+      <PageWrapper>
+        <Title>Search Results</Title>
 
-        <PageWrapper>
-          <Title>Search Results</Title>
-
-          <div style={{ textAlign: 'center' }}>
-            {this.state.status === 'searching' ? (
-              <Loading className="spinner" type="spin" color="#00629B" />
-            ) : (
-              this.state.results.map((r, i) => (
-                <SearchResultLink key={i} to={'/page/' + r.slug}>
-                  <SearchResult title={r.title} modified={r.modified} description={r.description} />
-                </SearchResultLink>
-              ))
-            )}
-          </div>
-        </PageWrapper>
-      </div>
+        <div style={{ textAlign: 'center' }}>
+          {this.state.status === 'searching' ? (
+            <Loading className="spinner" type="spin" color="#00629B" />
+          ) : (
+            this.state.results.map((r, i) => (
+              <SearchResultLink key={i} to={'/page/' + r.slug}>
+                <SearchResult title={r.title} modified={r.modified} description={r.description} />
+              </SearchResultLink>
+            ))
+          )}
+        </div>
+      </PageWrapper>
     )
   }
 }
