@@ -1,12 +1,14 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { Switch, Route } from 'react-router'
+
 import ContentPage from './pages/ContentPage'
 import ErrorPage from './pages/ErrorPage'
 import RegistrationPage from './pages/RegistrationPage'
 import SearchPage from './pages/SearchPage'
 
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 class Router extends React.Component {
   render() {
@@ -21,6 +23,7 @@ class Router extends React.Component {
             <Route path="/search/:query" component={SearchPage} />
             <Route path="" component={ErrorPage} />
           </Switch>
+          <Footer />
         </div>
       </BrowserRouter>
     )

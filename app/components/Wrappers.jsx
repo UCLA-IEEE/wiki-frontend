@@ -24,13 +24,8 @@ const CardContentWrapper = styled.div`
   margin: 0 auto;
 `
 
-const LightGreyBackground = styled.div`
-  background-color: #f5f5f5;
-`
-
 module.exports = {
   PageWrapper,
-  LightGreyBackground,
   CardContentWrapper,
   Card
 }

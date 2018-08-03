@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import hljs from 'highlightjs'
 
 import Footer from '../components/Footer'
-import { PageWrapper, LightGreyBackground, CardContentWrapper, Card } from '../components/Wrappers'
+import { PageWrapper, CardContentWrapper, Card } from '../components/Wrappers'
 import { Title } from '../components/Typography'
 import { CommentSection } from '../components/Comment'
 
@@ -38,33 +38,29 @@ class ContentPage extends Component {
 
   render() {
     return (
-      <LightGreyBackground>
-        <PageWrapper mobileWrap>
-          <Card>
-            <CardContentWrapper>
-              <Title>{page.page.title}</Title>
-              <div dangerouslySetInnerHTML={{ __html: page.page.content }} />
-            </CardContentWrapper>
-          </Card>
+      <PageWrapper mobileWrap>
+        <Card>
+          <CardContentWrapper>
+            <Title>{page.page.title}</Title>
+            <div dangerouslySetInnerHTML={{ __html: page.page.content }} />
+          </CardContentWrapper>
+        </Card>
 
-          <Card>
-            <CardContentWrapper>
-              <p>
-                <strong>Tags:</strong> {page.page.tags.map((tag, i) => <Tag key={i}>{tag}</Tag>)}
-              </p>
-              <p>
-                <strong>Contributors:</strong> {page.page.contributors.join(', ')}
-              </p>
-            </CardContentWrapper>
-          </Card>
+        <Card>
+          <CardContentWrapper>
+            <p>
+              <strong>Tags:</strong> {page.page.tags.map((tag, i) => <Tag key={i}>{tag}</Tag>)}
+            </p>
+            <p>
+              <strong>Contributors:</strong> {page.page.contributors.join(', ')}
+            </p>
+          </CardContentWrapper>
+        </Card>
 
-          <Card>
-            <CommentSection page={page.page} />
-          </Card>
-        </PageWrapper>
-
-        <Footer />
-      </LightGreyBackground>
+        <Card>
+          <CommentSection page={page.page} />
+        </Card>
+      </PageWrapper>
     )
   }
 }

@@ -2,18 +2,9 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import Footer from '../components/Footer'
-import { PageWrapper, LightGreyBackground, Card } from '../components/Wrappers'
+import { PageWrapper, Card } from '../components/Wrappers'
 import { Title } from '../components/Typography'
 import { Button, Input } from '../components/Form'
-
-const FullScreen = LightGreyBackground.extend`
-  height: 100%;
-  display: block;
-`
-
-const FullScreenWrapper = PageWrapper.extend`
-  height: 85%;
-`
 
 const RTitle = Title.extend`
   letter-spacing: 5px;
@@ -22,6 +13,10 @@ const RTitle = Title.extend`
 
 const P = styled.p`
   margin: 5px 0;
+`
+
+const WhitePageWrapper = PageWrapper.extend`
+  background-color: white;
 `
 
 class RegistrationPage extends Component {
@@ -54,35 +49,31 @@ class RegistrationPage extends Component {
 
   render() {
     return (
-      <FullScreen>
-        <FullScreenWrapper mobileWrap>
-          <Card style={{ textAlign: 'center' }}>
-            <RTitle>Wiki Registration</RTitle>
-            <form onSubmit={this.handleRegistrationSubmit}>
-              <P style={{ margin: '10px 0' }}>
-                <strong>UCLA Email Address</strong>
-              </P>
-              <Input name="email" type="text" onChange={this.handleChange} />
+      <PageWrapper mobileWrap>
+        <Card style={{ textAlign: 'center' }}>
+          <RTitle>Wiki Registration</RTitle>
+          <form onSubmit={this.handleRegistrationSubmit}>
+            <P style={{ margin: '10px 0' }}>
+              <strong>UCLA Email Address</strong>
+            </P>
+            <Input name="email" type="text" onChange={this.handleChange} />
 
-              <P>
-                <strong>Password</strong>
-              </P>
-              <Input name="password" type="Password" onChange={this.handleChange} />
+            <P>
+              <strong>Password</strong>
+            </P>
+            <Input name="password" type="Password" onChange={this.handleChange} />
 
-              <P>
-                <strong>Confirm Password</strong>
-              </P>
-              <Input name="passwordConfirm" type="Password" onChange={this.handleChange} />
+            <P>
+              <strong>Confirm Password</strong>
+            </P>
+            <Input name="passwordConfirm" type="Password" onChange={this.handleChange} />
 
-              <div>
-                <Button type="submit">Register</Button>
-              </div>
-            </form>
-          </Card>
-        </FullScreenWrapper>
-
-        <Footer />
-      </FullScreen>
+            <div>
+              <Button type="submit">Register</Button>
+            </div>
+          </form>
+        </Card>
+      </PageWrapper>
     )
   }
 }

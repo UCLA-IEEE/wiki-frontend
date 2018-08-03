@@ -4,12 +4,12 @@ import styled from 'styled-components'
 import { PageWrapper } from './Wrappers'
 
 const FooterContainer = styled.div`
-  background-color: #00629b;
-  padding: 15px 0;
+  padding: 30px 0;
+  margin-top: 40px;
 `
 
 const FooterText = styled.p`
-  color: white;
+  color: black;
   font-weight: bold;
   letter-spacing: 1px;
   margin: 0;
@@ -23,10 +23,9 @@ const FooterText = styled.p`
 const SocialContainer = styled.div`
   float: right;
   margin-top: -4px;
-  color: white;
 
   a {
-    color: white;
+    color: black;
   }
 
   i {
