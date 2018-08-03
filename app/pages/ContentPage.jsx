@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import hljs from 'highlightjs'
 
-import Footer from '../components/Footer'
 import { PageWrapper, CardContentWrapper, Card } from '../components/Wrappers'
 import { Title } from '../components/Typography'
 import { CommentSection } from '../components/Comment'

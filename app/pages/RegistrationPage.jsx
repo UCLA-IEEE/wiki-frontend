@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import Footer from '../components/Footer'
 import { PageWrapper, Card } from '../components/Wrappers'
 import { Title } from '../components/Typography'
 import { Button, Input } from '../components/Form'
@@ -13,10 +12,7 @@ const RTitle = Title.extend`
 
 const P = styled.p`
   margin: 5px 0;
-`
-
-const WhitePageWrapper = PageWrapper.extend`
-  background-color: white;
+  font-weight: bold;
 `
 
 class RegistrationPage extends Component {
@@ -53,19 +49,13 @@ class RegistrationPage extends Component {
         <Card style={{ textAlign: 'center' }}>
           <RTitle>Wiki Registration</RTitle>
           <form onSubmit={this.handleRegistrationSubmit}>
-            <P style={{ margin: '10px 0' }}>
-              <strong>UCLA Email Address</strong>
-            </P>
+            <P style={{ margin: '10px 0' }}>UCLA Email Address</P>
             <Input name="email" type="text" onChange={this.handleChange} />
 
-            <P>
-              <strong>Password</strong>
-            </P>
+            <P>Password</P>
             <Input name="password" type="Password" onChange={this.handleChange} />
 
-            <P>
-              <strong>Confirm Password</strong>
-            </P>
+            <P>Confirm Password</P>
             <Input name="passwordConfirm" type="Password" onChange={this.handleChange} />
 
             <div>
