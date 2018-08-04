@@ -28,6 +28,7 @@ pre {
   color: #abb2bf;
 
   font-family: 'Menlo', 'Source Code Pro', monospace;
+  line-height: 1.4;
 }
 
 @media (max-width: 750px) {

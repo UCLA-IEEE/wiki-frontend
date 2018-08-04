@@ -3,17 +3,7 @@ import styled from 'styled-components'
 
 import { PageWrapper, Card } from '../components/Wrappers'
 import { Title } from '../components/Typography'
-import { Button, Input } from '../components/Form'
-
-const RTitle = Title.extend`
-  letter-spacing: 5px;
-  text-transform: uppercase;
-`
-
-const P = styled.p`
-  margin: 5px 0;
-  font-weight: bold;
-`
+import { Input } from '../components/Form'
 
 class RegistrationPage extends Component {
   constructor(props) {
@@ -30,10 +20,8 @@ class RegistrationPage extends Component {
   }
 
   handleChange(e) {
-    let field = e.target.name
-    let value = e.target.value
     this.setState({
-      [field]: e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
@@ -47,19 +35,20 @@ class RegistrationPage extends Component {
     return (
       <PageWrapper mobileWrap>
         <Card style={{ textAlign: 'center' }}>
-          <RTitle>Wiki Registration</RTitle>
+          <Title style={{ letterSpacing: '5px', textTransform: 'uppercase' }}>Wiki Registration</Title>
+
           <form onSubmit={this.handleRegistrationSubmit}>
-            <P style={{ margin: '10px 0' }}>UCLA Email Address</P>
+            <label>UCLA Email Address</label>
             <Input name="email" type="text" onChange={this.handleChange} />
 
-            <P>Password</P>
+            <label>Password</label>
             <Input name="password" type="Password" onChange={this.handleChange} />
 
-            <P>Confirm Password</P>
+            <label>Confirm Password</label>
             <Input name="passwordConfirm" type="Password" onChange={this.handleChange} />
 
             <div>
-              <Button type="submit">Register</Button>
+              <button type="submit">Register</button>
             </div>
           </form>
         </Card>

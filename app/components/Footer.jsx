@@ -12,7 +12,7 @@ const FooterText = styled.p`
   color: black;
   font-weight: bold;
   letter-spacing: 1px;
-  margin: 0;
+  margin: 0 0 0 10px;
   display: inline-block;
 
   @media (max-width: 400px) {

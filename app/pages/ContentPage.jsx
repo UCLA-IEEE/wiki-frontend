@@ -48,7 +48,10 @@ class ContentPage extends Component {
         <Card>
           <CardContentWrapper>
             <p>
-              <strong>Tags:</strong> {page.page.tags.map((tag, i) => <Tag key={i}>{tag}</Tag>)}
+              <strong>Tags:</strong>{' '}
+              {page.page.tags.map((tag, i) => (
+                <Tag key={i}>{tag}</Tag>
+              ))}
             </p>
             <p>
               <strong>Contributors:</strong> {page.page.contributors.join(', ')}

@@ -21,13 +21,46 @@ const Comment = props => {
 class CommentSection extends Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      currentComment: '',
+      comments: props.page.comments
+    }
+
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  onChange(e) {
+    this.setState({ currentComment: e.target.value })
+  }
+
+  onSubmit(e) {
+    e.preventDefault()
+
+    this.setState(prevState => ({
+      currentComment: '',
+      comments: [
+        {
+          name: 'Dummy User',
+          message: prevState.currentComment
+        },
+        ...prevState.comments
+      ]
+    }))
+
+    console.log('Making API request to submit comment')
   }
 
   render() {
     return (
       <CardContentWrapper>
         <h1>Comments</h1>
-        {this.props.page.comments.map((c, i) => <Comment key={i} name={c.name} message={c.message} />)}
+        <form onSubmit={this.onSubmit}>
+          <textarea value={this.state.currentComment} onChange={this.onChange} />
+          <button type="submit">Submit</button>
+        </form>
+        {this.state.comments.map((c, i) => <Comment key={i} name={c.name} message={c.message} />)}
       </CardContentWrapper>
     )
   }

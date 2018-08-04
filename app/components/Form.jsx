@@ -1,21 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Button = styled.button`
-  display: inline-block;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: bold;
-  font-size: 15px;
-  color: white;
-  background-color: #00629b
-  border-radius: 50px;
-  border-shadow: none;
-  border: none;
-  padding: 5px 25px;
-  outline: none;
-`
-
 const Input = styled.input`
   display: inline-block;
   width: 300px;
@@ -32,6 +17,5 @@ const Input = styled.input`
 `
 
 module.exports = {
-  Button,
   Input
 }
