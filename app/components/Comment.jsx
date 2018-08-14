@@ -57,10 +57,14 @@ class CommentSection extends Component {
       <CardContentWrapper>
         <h1>Comments</h1>
         <form onSubmit={this.onSubmit}>
-          <textarea value={this.state.currentComment} onChange={this.onChange} />
+          <div style={{ width: '100%', padding: '1px' }}>
+            <textarea value={this.state.currentComment} onChange={this.onChange} />
+          </div>
           <button type="submit">Submit</button>
         </form>
-        {this.state.comments.map((c, i) => <Comment key={i} name={c.name} message={c.message} />)}
+        {this.state.comments.map((c, i) => (
+          <Comment key={i} name={c.name} message={c.message} />
+        ))}
       </CardContentWrapper>
     )
   }

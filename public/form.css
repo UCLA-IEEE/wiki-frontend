@@ -4,9 +4,10 @@ textarea {
   border-radius: 2px;
   border: solid black 1px;
   font-size: 18px;
-  height: 2em;
+  height: 3em;
   outline: none;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 button {

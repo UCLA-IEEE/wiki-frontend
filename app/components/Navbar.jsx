@@ -9,6 +9,16 @@ const NavbarContainer = styled.div`
   background-color: #00629b;
   text-align: center;
   padding: 20px 0;
+
+  @media (max-width: 750px) {
+    .container {
+      display: inline-block;
+    }
+
+    p {
+      display: none;
+    }
+  }
 `
 
 const Logo = styled.img`
@@ -25,6 +35,7 @@ const MobileLogo = styled.img`
   width: 40px;
   position: absolute;
   left: 10px;
+  top: -2px;
   display: none;
 
   @media (max-width: 750px) {
@@ -53,13 +64,42 @@ const NavbarText = styled.p`
   color: white;
 `
 
+class MenuIcon extends Component {
+  constructor() {
+    super()
+    this.state = { state: '' }
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick(e) {
+    let newState = this.state.state === 'change' ? '' : 'change'
+    this.setState({ state: newState })
+
+    let mobileNavList = document.getElementsByClassName('mobileNavList')[0]
+    let style = mobileNavList.style.display
+    if (style === 'none' || !style) {
+      mobileNavList.style.display = 'block'
+    } else {
+      mobileNavList.style.display = 'none'
+    }
+  }
+
+  render() {
+    return (
+      <div className={'container ' + this.state.state} onClick={this.handleClick}>
+        <div className="bar1" />
+        <div className="bar2" />
+        <div className="bar3" />
+      </div>
+    )
+  }
+}
+
 class Navbar extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      query: ''
-    }
+    this.state = { query: '' }
 
     this.handleQueryChange = this.handleQueryChange.bind(this)
     this.handleQuerySubmit = this.handleQuerySubmit.bind(this)
@@ -92,8 +132,19 @@ class Navbar extends Component {
           </form>
 
           <NavbarText>
-            <WhiteLink to="/login">Login</WhiteLink> | <WhiteLink to="/registration">Sign Up</WhiteLink>
+            <WhiteLink to="/login">Login</WhiteLink> | <WhiteLink to="/register">Sign Up</WhiteLink>
           </NavbarText>
+          <MenuIcon />
+        </PageWrapper>
+        <PageWrapper>
+          <ul className="mobileNavList">
+            <li>
+              <WhiteLink to="/login">Login</WhiteLink>
+            </li>
+            <li>
+              <WhiteLink to="/register">Register</WhiteLink>
+            </li>
+          </ul>
         </PageWrapper>
       </NavbarContainer>
     )

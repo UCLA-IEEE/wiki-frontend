@@ -19,7 +19,7 @@ class Router extends Component {
 
           <Switch>
             <Route exact path="/" component={ContentPage} />
-            <Route exact path="/registration" component={RegistrationPage} />
+            <Route exact path="/register" component={RegistrationPage} />
             <Route path="/page/:slug" component={ContentPage} />
             <Route path="/search/:query" component={SearchPage} />
             <Route path="" component={ErrorPage} />
