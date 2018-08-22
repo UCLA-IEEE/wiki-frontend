@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
-import Navbar from '../components/Navbar'
 import { Title } from '../components/Typography'
 import Loading from '../components/Loading'
 import { PageWrapper } from '../components/Wrappers'
-
-// TODO: Remove this once you have an actual API call
-import results from '../data/search-results'
 
 const SearchResultWrapper = styled.div`
   margin: 30px 0;
@@ -40,19 +37,38 @@ class SearchPage extends Component {
       status: 'searching',
       results: []
     }
+
+    this.getSearchResults = this.getSearchResults.bind(this)
   }
 
   componentDidMount() {
-    let callback = () => {
-      this.setState({
-        status: 'done',
-        results: results.results
-      })
-    }
+    let queryParameter = this.props.match.params.query
+    this.getSearchResults(queryParameter)
+      .then(res =>
+        this.setState(prevState => {
+          return { status: 'done', results: res.data }
+        })
+      )
+      .catch(err => console.log(err))
+  }
 
-    // TODO: Remove this delay with an actual call the API
-    // for search results
-    setTimeout(callback, 1000)
+  componentWillReceiveProps(newProps) {
+    this.setState(prev => {
+      return { status: 'searching' }
+    })
+
+    let newQueryParameter = this.props.match.params.query
+    this.getSearchResults(newQueryParameter)
+      .then(res =>
+        this.setState(prevState => {
+          return { status: 'done', results: res.data }
+        })
+      )
+      .catch(err => console.log(err))
+  }
+
+  getSearchResults(query) {
+    return axios.get('http://localhost:3000/search?query=' + query)
   }
 
   render() {

@@ -1,22 +1,23 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import { PageWrapper, Card } from '../components/Wrappers'
 import { Title, BlueLink } from '../components/Typography'
 import { Input } from '../components/Form'
 
-class RegistrationPage extends Component {
+class LoginPage extends Component {
   constructor(props) {
     super(props)
+    this.state = { email: '', password: '' }
 
-    this.state = {
-      email: '',
-      password: '',
-      passwordConfirm: ''
-    }
-
+    this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.handleRegistrationSubmit = this.handleRegistrationSubmit.bind(this)
+  }
+
+  handleLoginSubmit(e) {
+    e.preventDefault()
+    console.log(this.state)
+    console.log('Sending request to login')
   }
 
   handleChange(e) {
@@ -25,35 +26,26 @@ class RegistrationPage extends Component {
     })
   }
 
-  handleRegistrationSubmit(e) {
-    e.preventDefault()
-    console.log(this.state)
-    console.log('Sending request to register an account!')
-  }
-
   render() {
     return (
       <PageWrapper mobileWrap>
         <Card style={{ textAlign: 'center' }}>
-          <Title style={{ letterSpacing: '5px', textTransform: 'uppercase' }}>Registration</Title>
+          <Title style={{ letterSpacing: '5px', textTransform: 'uppercase' }}>Login</Title>
 
-          <form onSubmit={this.handleRegistrationSubmit}>
+          <form onSubmit={this.handleLoginSubmit}>
             <label>UCLA Email Address</label>
             <Input name="email" type="text" onChange={this.handleChange} />
 
             <label>Password</label>
             <Input name="password" type="Password" onChange={this.handleChange} />
 
-            <label>Confirm Password</label>
-            <Input name="passwordConfirm" type="Password" onChange={this.handleChange} />
-
             <div>
-              <button type="submit">Register</button>
+              <button type="submit">Login</button>
             </div>
           </form>
 
           <p>
-            Already have an account? <BlueLink to="/login">Login!</BlueLink>
+            Don't have an account? <BlueLink to="/register">Register!</BlueLink>
           </p>
         </Card>
       </PageWrapper>
@@ -61,4 +53,4 @@ class RegistrationPage extends Component {
   }
 }
 
-module.exports = RegistrationPage
+module.exports = LoginPage

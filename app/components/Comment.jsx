@@ -21,10 +21,9 @@ const Comment = props => {
 class CommentSection extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       currentComment: '',
-      comments: props.page.comments
+      comments: []
     }
 
     this.onChange = this.onChange.bind(this)
@@ -52,6 +51,14 @@ class CommentSection extends Component {
     console.log('Making API request to submit comment')
   }
 
+  componentWillReceiveProps(newProps) {
+    this.setState(prevState => {
+      return {
+        comments: newProps.page.comments
+      }
+    })
+  }
+
   render() {
     return (
       <CardContentWrapper>
@@ -62,6 +69,7 @@ class CommentSection extends Component {
           </div>
           <button type="submit">Submit</button>
         </form>
+
         {this.state.comments.map((c, i) => (
           <Comment key={i} name={c.name} message={c.message} />
         ))}

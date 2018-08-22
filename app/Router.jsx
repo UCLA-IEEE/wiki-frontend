@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router'
 
 import ContentPage from './pages/ContentPage'
 import ErrorPage from './pages/ErrorPage'
+import LoginPage from './pages/LoginPage'
 import RegistrationPage from './pages/RegistrationPage'
 import SearchPage from './pages/SearchPage'
 
@@ -20,6 +21,7 @@ class Router extends Component {
           <Switch>
             <Route exact path="/" component={ContentPage} />
             <Route exact path="/register" component={RegistrationPage} />
+            <Route exact path="/login" component={LoginPage} />
             <Route path="/page/:slug" component={ContentPage} />
             <Route path="/search/:query" component={SearchPage} />
             <Route path="" component={ErrorPage} />

@@ -18,7 +18,17 @@ const WhiteLink = styled(Link)`
   }
 `
 
+const BlueLink = styled(Link)`
+  color: #00629b;
+  text-decoration: none;
+
+  :hover {
+    text-decoration: underline;
+  }
+`
+
 module.exports = {
   Title,
-  WhiteLink
+  WhiteLink,
+  BlueLink
 }

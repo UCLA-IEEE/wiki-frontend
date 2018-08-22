@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
 import hljs from 'highlightjs'
 
 import { PageWrapper, CardContentWrapper, Card } from '../components/Wrappers'
 import { Title } from '../components/Typography'
 import { CommentSection } from '../components/Comment'
-
-import page from '../data/page'
 
 const Tag = styled.span`
   display: inline-block;
@@ -22,10 +21,18 @@ const Tag = styled.span`
 class ContentPage extends Component {
   constructor(props) {
     super(props)
+    this.state = { page: {} }
   }
 
   componentWillMount() {
-    console.log('making request for page content ...')
+    axios
+      .get('http://localhost:3000/page/email-forwarding')
+      .then(res =>
+        this.setState(prevState => {
+          return { page: res.data }
+        })
+      )
+      .catch(err => console.log(err))
   }
 
   componentDidMount() {
@@ -36,12 +43,15 @@ class ContentPage extends Component {
   }
 
   render() {
+    let contributors = this.state.page.contributors ? this.state.page.contributors.join(', ') : null
+    let tags = this.state.page.tags ? this.state.page.tags : []
+
     return (
       <PageWrapper mobileWrap>
         <Card>
           <CardContentWrapper>
-            <Title>{page.page.title}</Title>
-            <div dangerouslySetInnerHTML={{ __html: page.page.content }} />
+            <Title>{this.state.page.title}</Title>
+            <div dangerouslySetInnerHTML={{ __html: this.state.page.content }} />
           </CardContentWrapper>
         </Card>
 
@@ -49,18 +59,18 @@ class ContentPage extends Component {
           <CardContentWrapper>
             <p>
               <strong>Tags:</strong>{' '}
-              {page.page.tags.map((tag, i) => (
+              {tags.map((tag, i) => (
                 <Tag key={i}>{tag}</Tag>
               ))}
             </p>
             <p>
-              <strong>Contributors:</strong> {page.page.contributors.join(', ')}
+              <strong>Contributors:</strong> {contributors}
             </p>
           </CardContentWrapper>
         </Card>
 
         <Card>
-          <CommentSection page={page.page} />
+          <CommentSection page={this.state.page} />
         </Card>
       </PageWrapper>
     )
