@@ -4,16 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "parcel build index.html",
+    "build": "BUILD_ENV=production parcel build index.html",
     "format": "prettier --single-quote --print-width=120 --no-semi --write ./app/**.jsx ./app/**/**.jsx",
-    "start": "parcel index.html",
+    "start": "BUILD_ENV=development parcel index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "babel": {
-    "presets": [
-      "env",
-      "react"
-    ]
+    "presets": ["env", "react"]
   },
   "author": "",
   "license": "ISC",

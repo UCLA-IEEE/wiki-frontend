@@ -6,6 +6,7 @@ import hljs from 'highlightjs'
 import { PageWrapper, CardContentWrapper, Card } from '../components/Wrappers'
 import { Title } from '../components/Typography'
 import { CommentSection } from '../components/Comment'
+import { API_HOST } from '../config'
 
 const Tag = styled.span`
   display: inline-block;
@@ -26,7 +27,7 @@ class ContentPage extends Component {
 
   componentWillMount() {
     axios
-      .get('http://localhost:3000/page/email-forwarding')
+      .get(API_HOST + '/page/email-forwarding')
       .then(res =>
         this.setState(prevState => {
           return { page: res.data }

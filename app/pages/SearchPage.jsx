@@ -6,6 +6,7 @@ import axios from 'axios'
 import { Title } from '../components/Typography'
 import Loading from '../components/Loading'
 import { PageWrapper } from '../components/Wrappers'
+import { API_HOST } from '../config'
 
 const SearchResultWrapper = styled.div`
   margin: 30px 0;
@@ -68,7 +69,7 @@ class SearchPage extends Component {
   }
 
   getSearchResults(query) {
-    return axios.get('http://localhost:3000/search?query=' + query)
+    return axios.get(API_HOST + '/search?query=' + query)
   }
 
   render() {
