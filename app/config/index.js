@@ -1,6 +1,6 @@
 if (process.env.BUILD_ENV === 'production') {
   module.exports = {
-    API_HOST: 'http://ucla-ieee-api-development.herokuapp.com/'
+    API_HOST: 'http://ucla-ieee-api-development.herokuapp.com'
   }
 } else {
   module.exports = {
