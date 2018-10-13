@@ -1,14 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 
 const PageWrapper = styled.div`
-  max-width: 1200px;
+  max-width: ${props => props.maxWidth || "1200px"};
   margin: 0 auto;
   position: relative;
   padding: 0 10px;
 
   @media (max-width: 800px) {
-    padding: ${props => (props.mobileWrap ? '0' : '0 10px')};
+    padding: ${props => (props.mobileWrap ? "0" : "0 10px")};
   }
 `
 
@@ -20,7 +20,7 @@ const Card = styled.div`
 `
 
 const CardContentWrapper = styled.div`
-  max-width: 1100px;
+  max-width: ${props => props.maxWidth || "1100px"};
   margin: 0 auto;
 `
 
