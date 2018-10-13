@@ -132,7 +132,9 @@ class Navbar extends Component {
           </form>
 
           <NavbarText>
-            <WhiteLink to="/login">Login</WhiteLink> | <WhiteLink to="/register">Sign Up</WhiteLink>
+            {
+              // <WhiteLink to="/login">Login</WhiteLink> | <WhiteLink to="/register">Sign Up</WhiteLink>
+            }
             <WhiteLink to="/edit/new">
               <i className="fa fa-2x fa-edit" />
             </WhiteLink>

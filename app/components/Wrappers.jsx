@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 const PageWrapper = styled.div`
-  max-width: 1200px;
+  max-width: ${props => props.maxWidth || "1200px"};
   margin: 0 auto;
   position: relative;
   padding: 0 10px;

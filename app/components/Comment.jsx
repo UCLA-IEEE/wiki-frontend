@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { Component } from "react"
+import styled from "styled-components"
 
-import { CardContentWrapper } from './Wrappers'
+import { CardContentWrapper } from "./Wrappers"
+import { TextArea } from "./Form"
 
 const CommentBox = styled.div`
   margin: 20px 0;
@@ -22,7 +23,7 @@ class CommentSection extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentComment: '',
+      currentComment: "",
       comments: []
     }
 
@@ -38,17 +39,18 @@ class CommentSection extends Component {
     e.preventDefault()
 
     this.setState(prevState => ({
-      currentComment: '',
+      currentComment: "",
       comments: [
         {
-          name: 'Dummy User',
+          name: "User",
           message: prevState.currentComment
         },
         ...prevState.comments
       ]
     }))
 
-    console.log('Making API request to submit comment')
+    console.log(this.props.match.params.slug)
+    console.log("Making API request to submit comment")
   }
 
   componentWillReceiveProps(newProps) {
@@ -64,10 +66,12 @@ class CommentSection extends Component {
       <CardContentWrapper>
         <h1>Comments</h1>
         <form onSubmit={this.onSubmit}>
-          <div style={{ width: '100%', padding: '1px' }}>
-            <textarea value={this.state.currentComment} onChange={this.onChange} />
+          <div style={{ width: "100%", padding: "1px" }}>
+            <TextArea value={this.state.currentComment} onChange={this.onChange} />
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" style={{ marginLeft: "0px" }}>
+            Submit
+          </button>
         </form>
 
         {this.state.comments.map((c, i) => (

@@ -23,13 +23,22 @@ const Input = styled.input`
   :focus {
     border: solid #c4c4c4 1px;
   }
+
+  :read-only {
+    background-color: lightGrey;
+  }
 `
 
 const TextArea = styled.textarea`
   width: 100%;
   height: ${props => props.height || "50px"};
+  padding: 10px;
+  resize: none;
+  outline: none;
+  border-radius: 2px;
   border: solid #c4c4c4 1px
   box-sizing: border-box;
+  font-size: 18px;
   font-family: ${props => (props.code ? "'Menlo', 'Source Code Pro', monospace" : "inherit")}
 `
 
