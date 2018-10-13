@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import { Link, withRouter } from 'react-router-dom'
+import React, { Component } from "react"
+import styled from "styled-components"
+import { Link, withRouter } from "react-router-dom"
 
-import { WhiteLink } from './Typography'
-import { PageWrapper } from './Wrappers'
+import { WhiteLink } from "./Typography"
+import { PageWrapper } from "./Wrappers"
 
 const NavbarContainer = styled.div`
   background-color: #00629b;
@@ -67,26 +67,26 @@ const NavbarText = styled.p`
 class MenuIcon extends Component {
   constructor() {
     super()
-    this.state = { state: '' }
+    this.state = { state: "" }
     this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick(e) {
-    let newState = this.state.state === 'change' ? '' : 'change'
+    let newState = this.state.state === "change" ? "" : "change"
     this.setState({ state: newState })
 
-    let mobileNavList = document.getElementsByClassName('mobileNavList')[0]
+    let mobileNavList = document.getElementsByClassName("mobileNavList")[0]
     let style = mobileNavList.style.display
-    if (style === 'none' || !style) {
-      mobileNavList.style.display = 'block'
+    if (style === "none" || !style) {
+      mobileNavList.style.display = "block"
     } else {
-      mobileNavList.style.display = 'none'
+      mobileNavList.style.display = "none"
     }
   }
 
   render() {
     return (
-      <div className={'container ' + this.state.state} onClick={this.handleClick}>
+      <div className={"container " + this.state.state} onClick={this.handleClick}>
         <div className="bar1" />
         <div className="bar2" />
         <div className="bar3" />
@@ -99,7 +99,7 @@ class Navbar extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { query: '' }
+    this.state = { query: "" }
 
     this.handleQueryChange = this.handleQueryChange.bind(this)
     this.handleQuerySubmit = this.handleQuerySubmit.bind(this)
@@ -121,10 +121,10 @@ class Navbar extends Component {
       <NavbarContainer>
         <PageWrapper>
           <Link to="/">
-            <Logo src={require('/public/logo.png')} />
+            <Logo src={require("/public/logo.png")} />
           </Link>
           <Link to="/">
-            <MobileLogo src={require('/public/IEEE_white_flag.png')} />
+            <MobileLogo src={require("/public/IEEE_white_flag.png")} />
           </Link>
 
           <form onSubmit={this.handleQuerySubmit}>
@@ -133,6 +133,9 @@ class Navbar extends Component {
 
           <NavbarText>
             <WhiteLink to="/login">Login</WhiteLink> | <WhiteLink to="/register">Sign Up</WhiteLink>
+            <WhiteLink to="/edit/new">
+              <i className="fa fa-2x fa-edit" />
+            </WhiteLink>
           </NavbarText>
           <MenuIcon />
         </PageWrapper>

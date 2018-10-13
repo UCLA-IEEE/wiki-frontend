@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import axios from 'axios'
-import hljs from 'highlightjs'
+import React, { Component } from "react"
+import styled from "styled-components"
+import axios from "axios"
+import hljs from "highlightjs"
 
-import { PageWrapper, CardContentWrapper, Card } from '../components/Wrappers'
-import { Title } from '../components/Typography'
-import { CommentSection } from '../components/Comment'
-import { API_HOST } from '../config'
+import { PageWrapper, CardContentWrapper, Card } from "../components/Wrappers"
+import { Title } from "../components/Typography"
+import { CommentSection } from "../components/Comment"
+import { API_HOST } from "../config"
 
 const Tag = styled.span`
   display: inline-block;
@@ -27,7 +27,7 @@ class ContentPage extends Component {
 
   componentWillMount() {
     axios
-      .get(API_HOST + '/page/email-forwarding')
+      .get(API_HOST + "/page/email-forwarding")
       .then(res =>
         this.setState(prevState => {
           return { page: res.data }
@@ -38,13 +38,13 @@ class ContentPage extends Component {
 
   componentDidMount() {
     // Apply highlight.js for dynamically added code segments
-    for (let e of document.getElementsByTagName('pre')) {
+    for (let e of document.getElementsByTagName("pre")) {
       e.innerHTML = hljs.highlightAuto(e.innerText).value
     }
   }
 
   render() {
-    let contributors = this.state.page.contributors ? this.state.page.contributors.join(', ') : null
+    let contributors = this.state.page.contributors ? this.state.page.contributors.join(", ") : null
     let tags = this.state.page.tags ? this.state.page.tags : []
 
     return (
@@ -59,7 +59,7 @@ class ContentPage extends Component {
         <Card>
           <CardContentWrapper>
             <p>
-              <strong>Tags:</strong>{' '}
+              <strong>Tags:</strong>{" "}
               {tags.map((tag, i) => (
                 <Tag key={i}>{tag}</Tag>
               ))}
