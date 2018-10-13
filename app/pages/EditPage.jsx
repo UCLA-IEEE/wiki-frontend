@@ -69,7 +69,7 @@ class EditPage extends Component {
                   Check out all of the full syntax here
                 </a>.
               </SubLabel>
-              <TextArea code={true} height="400px" />
+              <TextArea code height="400px" />
             </FormGroup>
           </CardContentWrapper>
         </Card>
