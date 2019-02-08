@@ -184,7 +184,7 @@ class EditPage extends Component {
       </PageWrapper>
     )
 
-    let redirectingUI = <Redirect to={"/page/" + slug} />
+    let redirectingUI = <Redirect to={"/page/" + this.state.page.slug} />
 
     switch (this.state.currentState) {
       case s.Editting:
